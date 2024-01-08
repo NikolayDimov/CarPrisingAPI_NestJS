@@ -8,21 +8,21 @@ import { User } from './users/user.entity';
 import { Report } from './reports/report.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'carPricingNestJS',
-      entities: [User, Report],
-      synchronize: true,  // only for dev environment, not production
-    }),
-    UsersModule,
-    ReportsModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        TypeOrmModule.forRoot({
+            type: 'postgres',
+            host: 'localhost',
+            port: 5432,
+            username: 'postgres',
+            password: 'postgres',
+            database: 'carPricingNestJS',
+            entities: [User, Report],
+            synchronize: true, // only for dev environment, not production
+        }),
+        UsersModule,
+        ReportsModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}
