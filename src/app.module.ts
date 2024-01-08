@@ -15,9 +15,9 @@ import { Report } from './reports/report.entity';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'carPrisingNestJS',
+      database: 'carPricingNestJS',
       entities: [User, Report],
-      synchronize: true,
+      synchronize: true,  // only for dev environment, not production
     }),
     UsersModule,
     ReportsModule,
