@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { User } from './users/user.entity';
+import { Report } from './reports/report.entity';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { User } from './users/user.entity';
       username: 'postgres',
       password: 'postgres',
       database: 'carPrisingNestJS',
-      entities: [User],
+      entities: [User, Report],
       synchronize: true,
     }),
     UsersModule,
