@@ -10,7 +10,7 @@ import {
     NotFoundException,
     // UseInterceptors,
     // ClassSerializerInterceptor,
-    Session
+    Session,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateuserDto } from './dtos/update-user.dto';
@@ -18,9 +18,13 @@ import { UsersService } from './users.service';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorators';
+import { User } from './user.entity';
+
 
 @Controller('auth')
 @Serialize(UserDto) // no password return for user
+
 
 export class UsersController {
     constructor(
@@ -28,10 +32,16 @@ export class UsersController {
         private authService: AuthService
         ) {}
 
+    // @Get('/whoami')
+    // whoAmI(@Session() session: any) {
+    //     return this.userService.findOne(session.userId);
+    // }
+
+    // Custom Decorator Current User
     @Get('/whoami')
-        whoAmI(@Session() session: any) {
-            return this.userService.findOne(session.userId);
-        }
+    whoAmI(@CurrentUser() user: User) {
+        return user;
+    }
 
     @Post('/signup')
     async createUser(@Body() body: CreateUserDto, @Session() session: any) {
