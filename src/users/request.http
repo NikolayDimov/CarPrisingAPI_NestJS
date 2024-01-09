@@ -3,7 +3,17 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "abv@abv.com",
+    "email": "abv4@abv.com",
+    "password": "wertyuiop44"
+}
+
+
+### Login a new user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "abv3@abv.com",
     "password": "wertyuiop14"
 }
 
