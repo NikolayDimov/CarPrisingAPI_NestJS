@@ -48,6 +48,11 @@ export class UsersController {
         return user;
     }
 
+    @Post('/signout')
+    signout(@Session() session: any) {
+        session.userId = null;
+    }
+
     // @UseInterceptors(new SerializerInterceptor(UserDto)) // no password return with Get method
     // @Serialize(UserDto)
     @Get('/:id')
