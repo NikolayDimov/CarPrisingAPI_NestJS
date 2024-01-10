@@ -26,3 +26,49 @@ Content-Type: application/json
     "lat": 0,
     "price": 21500
 }
+
+
+### Create Report Toyota
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+    "make": "honda",
+    "model": "crv",
+    "year": 2020,
+    "mileage": 9000,
+    "lng": 0,
+    "lat": 0,
+    "price": 34500
+}
+
+
+### Create Report Mercedes
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+    "make": "mercedes",
+    "model": "C300",
+    "year": 2019,
+    "mileage": 120000,
+    "lng": 0,
+    "lat": 0,
+    "price": 29500
+}
+
+### Approve an existing report
+PATCH http://localhost:3000/reports/7
+Content-Type: application/json
+
+{
+    "approved": true
+}
+
+### AnApprove an existing report
+PATCH http://localhost:3000/reports/7
+Content-Type: application/json
+
+{
+    "approved": false
+}
