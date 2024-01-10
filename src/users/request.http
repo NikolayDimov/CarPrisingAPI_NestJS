@@ -16,6 +16,15 @@ Content-Type: application/json
     "password": "123456"
 }
 
+### Create a Admin new user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "admin@abv.com",
+    "password": "11111"
+}
+
 ### Login user
 POST http://localhost:3000/auth/signin
 Content-Type: application/json
