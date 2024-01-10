@@ -6,9 +6,6 @@ export class Report {
     id: number;
 
     @Column()
-    price: number;
-
-    @Column()
     make: string;
 
     @Column()
@@ -25,4 +22,7 @@ export class Report {
 
     @Column()
     mileage: number;
+
+    @Column()
+    price: number;
 }
