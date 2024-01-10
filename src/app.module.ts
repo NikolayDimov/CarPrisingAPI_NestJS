@@ -57,7 +57,9 @@ const cookieSession = require('cookie-session');
     ],
 })
 export class AppModule {
+    constructor(private configService: ConfigService) {}
+
     configure(consumer: MiddlewareConsumer) {
-        consumer.apply(cookieSession({ keys: ['superCookie'] })).forRoutes('*');
+        consumer.apply(cookieSession({ keys: [this.configService.get('COOKIE_KEY')] })).forRoutes('*');
     }
 }
